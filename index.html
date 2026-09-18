@@ -22,11 +22,11 @@
 <link rel="apple-mobile-web-app" href="https://warrenwoodhouse.github.io/notes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="mask-icon" href="https://raw.githubusercontent.com/warrenwoodhouse/favicons/main/notes.ico" color="#FF0000">
-<meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#f39f22" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#090909-translucent" media="(prefers-color-scheme: dark)">
 <link rel="manifest" href="https://raw.githubusercontent.com/warrenwoodhouse/warrenwoodhouse/master/site/site.webmanifest" crossorigin="use-credentials" id="manifest-link" />
 <link rel="icon" type="image/ico" href="https://raw.githubusercontent.com/warrenwoodhouse/favicons/main/notes.ico" sizes="96x96" />
-<meta name="apple-mobile-web-app-status-bar-style" content="#0f172a-translucent">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f39f22-gradient">
 <meta name="apple-touch-fullscreen" content="yes">
 <link href="https://raw.githubusercontent.com/warrenwoodhouse/favicons/main/notes.ico" rel="apple-touch-icon" type="image/ico">
 <link href="https://raw.githubusercontent.com/warrenwoodhouse/favicons/main/notes.ico" rel="apple-ipad-icon" type="image/ico" sizes="72x72">
@@ -38,7 +38,7 @@
 <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
 <meta name="msapplication-starturl" content="https://warrenwoodhouse.github.io/notes">
 <meta name="msapplication-window" content="width=800;height=600">
-<meta name="msapplication-navbutton-color" content="grey">
+<meta name="msapplication-navbutton-color" content="#f39f22-gradient">
 <meta name="application-name" content="Warren Notes">
 <meta name="msapplication-tooltip" content="A secure and safe notetaking Progressive Web Application.">
 <meta name="msapplication-task" content="name=About;action-uri=https://warrenwoodhouse.blogspot.com/p/about.html;icon-uri=https://warrenwoodhouse.blogspot.com/favicon.ico">
@@ -60,9 +60,9 @@
     body { font-family: 'Inter', sans-serif; }
     /* Custom scrollbars */
     ::-webkit-scrollbar { width: 6px; height: 6px; }
-    ::-webkit-scrollbar-track { background: #0f172a; }
-    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: #475569; }
+    ::-webkit-scrollbar-track { background: #f39f22; }
+    ::-webkit-scrollbar-thumb { background: #090909; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #f69500; }
   </style>
 </head>
 <body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white">
@@ -212,6 +212,9 @@
               <option value="work">Work</option>
               <option value="financial">Financial</option>
               <option value="ideas">Ideas</option>
+              <option value="diary">Diary</option>
+              <option value="tasks">Tasks</option>
+              <option value="other">Other</option>
             </select>
           </div>
         </div>
@@ -251,8 +254,8 @@
         short_name: "VaultNotes",
         start_url: ".",
         display: "standalone",
-        background_color: "#0f172a",
-        theme_color: "#0f172a",
+        background_color: "#f39f22",
+        theme_color: "#f39f22",
         icons: [{
           src: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%236366f1'/><path d='M30 45V35a20 20 0 0 1 40 0v10h5v40H25V45h5zm10 0h20V35a10 10 0 0 0-20 0v10z' fill='white'/></svg>",
           sizes: "192x192 512x512",
@@ -610,5 +613,6 @@
         tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag));
     }
   </script>
+  <footer>&copy;2026 <a href="https://warrenwoodhouse.blogspot.com/">Warren Woodhouse</a></footer>
 </body>
 </html>
