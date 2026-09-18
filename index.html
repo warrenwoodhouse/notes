@@ -73,7 +73,8 @@
       <div class="w-16 h-16 bg-indigo-600/20 text-indigo-400 rounded-full flex items-center justify-center mx-auto mb-4 border border-indigo-500/30">
         <i class="fa-solid fa-user-lock text-3xl"></i>
       </div>
-      <h1 class="text-2xl font-bold mb-2" id="auth-title">Private Vault Notes</h1>
+      <h1><a href="https://warrenwoodhouse.github.io/notes"><img src="https://raw.githubusercontent.com/warrenwoodhouse/logos/main/logos-notes-small.png"></a></h1>
+      <h2 class="text-2x1 font-bold mb-2">Game by Warren Woodhouse. &copy;2026 <a href="https://warrenwoodhouse.blogspot.com/">Warren Woodhouse</a>.</h2>
       <p class="text-slate-400 text-sm mb-6" id="auth-subtitle">Enter your master passcode to decrypt your private notes.</p>
       
       <form id="auth-form" onsubmit="handleAuth(event)" class="space-y-4">
@@ -97,7 +98,7 @@
       <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
         <div class="flex items-center gap-3">
           <span class="p-2 bg-indigo-600 text-white rounded-lg"><i class="fa-solid fa-vault"></i></span>
-          <h1 class="font-bold text-lg hidden sm:block tracking-wide">Vault Notes</h1>
+          <h1 class="font-bold text-lg hidden sm:block tracking-wide">Warren Notes</h1>
           <span class="text-xs bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded-full flex items-center gap-1">
             <i class="fa-solid fa-shield-halved text-[10px]"></i> AES-256
           </span>
@@ -137,7 +138,7 @@
       <!-- Sidebar Filters -->
       <aside class="space-y-4">
         <button onclick="openNoteModal()" class="w-full py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-xl shadow-lg shadow-indigo-600/20 flex items-center justify-center gap-2 transition">
-          <i class="fa-solid fa-plus"></i> New Private Note
+          <i class="fa-solid fa-plus"></i> New Note
         </button>
 
         <div class="bg-slate-800/50 border border-slate-700/60 rounded-xl p-4 space-y-2">
@@ -161,6 +162,22 @@
           <button onclick="filterCategory('ideas')" id="cat-ideas" class="cat-btn w-full text-left px-3 py-2 rounded-lg text-sm text-slate-300 hover:bg-slate-700/50 flex items-center justify-between">
             <span><i class="fa-solid fa-lightbulb mr-2 text-purple-400"></i> Ideas</span>
             <span id="count-ideas" class="text-xs bg-slate-900 px-2 py-0.5 rounded-full">0</span>
+          </button>
+          <button onclick="filterCategory('diary')" id="cat-diary" class="cat-btn w-full text-left px-3 py-2 rounded-lg text-sm text-slate-300 hover:bg-slate-700/50 flex items-center justify-between">
+            <span><i class="fa-solid fa-lightbulb mr-2 text-purple-400"></i> Diary</span>
+            <span id="count-diary" class="text-xs bg-slate-900 px-2 py-0.5 rounded-full">0</span>
+          </button>
+          <button onclick="filterCategory('tasks')" id="cat-tasks" class="cat-btn w-full text-left px-3 py-2 rounded-lg text-sm text-slate-300 hover:bg-slate-700/50 flex items-center justify-between">
+            <span><i class="fa-solid fa-lightbulb mr-2 text-purple-400"></i> Tasks</span>
+            <span id="count-tasks" class="text-xs bg-slate-900 px-2 py-0.5 rounded-full">0</span>
+          </button>
+          <button onclick="filterCategory('gaming')" id="cat-gaming" class="cat-btn w-full text-left px-3 py-2 rounded-lg text-sm text-slate-300 hover:bg-slate-700/50 flex items-center justify-between">
+            <span><i class="fa-solid fa-lightbulb mr-2 text-purple-400"></i> Gaming</span>
+            <span id="count-gaming" class="text-xs bg-slate-900 px-2 py-0.5 rounded-full">0</span>
+          </button>
+          <button onclick="filterCategory('other')" id="cat-other" class="cat-btn w-full text-left px-3 py-2 rounded-lg text-sm text-slate-300 hover:bg-slate-700/50 flex items-center justify-between">
+            <span><i class="fa-solid fa-lightbulb mr-2 text-purple-400"></i> Other</span>
+            <span id="count-other" class="text-xs bg-slate-900 px-2 py-0.5 rounded-full">0</span>
           </button>
         </div>
       </aside>
@@ -214,6 +231,7 @@
               <option value="ideas">Ideas</option>
               <option value="diary">Diary</option>
               <option value="tasks">Tasks</option>
+              <option value="gaming">Gaming</option>
               <option value="other">Other</option>
             </select>
           </div>
@@ -221,7 +239,7 @@
 
         <div class="flex-1 flex flex-col min-h-[250px]">
           <label class="block text-xs font-medium text-slate-400 mb-1">Content (Markdown Supported)</label>
-          <textarea id="note-body-input" required placeholder="Write your secret notes here..." 
+          <textarea id="note-body-input" required placeholder="Write your notes here..." 
             class="flex-1 w-full p-3 bg-slate-800 border border-slate-700 rounded-lg text-sm text-slate-100 font-mono resize-none focus:ring-2 focus:ring-indigo-500 focus:outline-none"></textarea>
           
           <!-- Markdown Preview Container -->
@@ -250,8 +268,8 @@
     (function initPWA() {
       // Inline Manifest creation
       const manifestObj = {
-        name: "Private Vault Notes PWA",
-        short_name: "VaultNotes",
+        name: "Warren Notes - Warren Woodhouse",
+        short_name: "WarrenNotes",
         start_url: ".",
         display: "standalone",
         background_color: "#f39f22",
@@ -268,7 +286,7 @@
       // Inline Service Worker registration for offline support
       if ('serviceWorker' in navigator) {
         const swCode = `
-          const CACHE_NAME = 'vault-notes-v1';
+          const CACHE_NAME = 'warren-notes-v1';
           self.addEventListener('install', e => {
             e.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(['./'])));
           });
@@ -352,7 +370,7 @@
       const pinMeta = localStorage.getItem('vault_pin_meta');
       if (!pinMeta) {
         document.getElementById('auth-title').innerText = "Create Master Passcode";
-        document.getElementById('auth-subtitle').innerText = "Set a passcode to secure & encrypt all your private notes.";
+        document.getElementById('auth-subtitle').innerText = "Set a passcode to secure & encrypt all your notes.";
         document.getElementById('auth-btn').innerText = "Create Vault";
       }
     });
