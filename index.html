@@ -179,6 +179,26 @@
             <span><i class="fa-solid fa-lightbulb mr-2 text-purple-400"></i> Other</span>
             <span id="count-other" class="text-xs bg-slate-900 px-2 py-0.5 rounded-full">0</span>
           </button>
+          <button onclick="filterCategory('news')" id="cat-news" class="cat-btn w-full text-left px-3 py-2 rounded-lg text-sm text-slate-300 hover:bg-slate-700/50 flex items-center justify-between">
+            <span><i class="fa-solid fa-lightbulb mr-2 text-purple-400"></i> News</span>
+            <span id="count-news" class="text-xs bg-slate-900 px-2 py-0.5 rounded-full">0</span>
+          </button>
+          <button onclick="filterCategory('offbeat')" id="cat-offbeat" class="cat-btn w-full text-left px-3 py-2 rounded-lg text-sm text-slate-300 hover:bg-slate-700/50 flex items-center justify-between">
+            <span><i class="fa-solid fa-lightbulb mr-2 text-purple-400"></i> Offbeat</span>
+            <span id="count-offbeat" class="text-xs bg-slate-900 px-2 py-0.5 rounded-full">0</span>
+          </button>
+          <button onclick="filterCategory('tech')" id="cat-tech" class="cat-btn w-full text-left px-3 py-2 rounded-lg text-sm text-slate-300 hover:bg-slate-700/50 flex items-center justify-between">
+            <span><i class="fa-solid fa-lightbulb mr-2 text-purple-400"></i> Technology</span>
+            <span id="count-tech" class="text-xs bg-slate-900 px-2 py-0.5 rounded-full">0</span>
+          </button>
+          <button onclick="filterCategory('science')" id="cat-science" class="cat-btn w-full text-left px-3 py-2 rounded-lg text-sm text-slate-300 hover:bg-slate-700/50 flex items-center justify-between">
+            <span><i class="fa-solid fa-lightbulb mr-2 text-purple-400"></i> Science</span>
+            <span id="count-science" class="text-xs bg-slate-900 px-2 py-0.5 rounded-full">0</span>
+          </button>
+          <button onclick="filterCategory('health')" id="cat-health" class="cat-btn w-full text-left px-3 py-2 rounded-lg text-sm text-slate-300 hover:bg-slate-700/50 flex items-center justify-between">
+            <span><i class="fa-solid fa-lightbulb mr-2 text-purple-400"></i> Health, Fitness & Wellbeing</span>
+            <span id="count-health" class="text-xs bg-slate-900 px-2 py-0.5 rounded-full">0</span>
+          </button>
         </div>
       </aside>
 
@@ -233,6 +253,11 @@
               <option value="tasks">Tasks</option>
               <option value="gaming">Gaming</option>
               <option value="other">Other</option>
+              <option value="news">News</option>
+              <option value="offbeat">Offbeat</option>
+              <option value="tech">Technology</option>
+              <option value="science">Science</option>
+              <option value="health">Health, Fitness & Wellbeing</option>
             </select>
           </div>
         </div>
